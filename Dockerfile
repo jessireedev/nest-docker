@@ -15,9 +15,6 @@ COPY src .
 
 COPY tsconfig*.json ./
 
-# Copy the .env and .env.development files
-COPY .env ./
-
 # Creates a "dist" folder with the production build
 RUN npm run build
 
