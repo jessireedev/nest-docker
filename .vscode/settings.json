@@ -1,0 +1,19 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.removeUnusedImports": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "prettier.arrowParens": "always",
+  "prettier.trailingComma": "all",
+  "eslint.validate": ["javascript", "typescript"],
+  "editor.rulers": [100],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  }
+}
