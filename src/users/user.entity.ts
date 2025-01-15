@@ -18,5 +18,11 @@ export class UserEntity {
   isActive: boolean;
 
   // @OneToMany(type => Photo, photo => photo.user)
-  // photos: Photo[];
+  // photos: Photo[];.
+
+  constructor(partial?: Partial<UserEntity>) {
+    if (partial) {
+      Object.assign(this, partial);
+    }
+  }
 }
