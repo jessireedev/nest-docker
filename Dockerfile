@@ -1,11 +1,13 @@
 # Base image
-FROM node:20
+FROM node:23-alpine3.20 as base
 
 # Create app directory
 WORKDIR /usr/src/app
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
+
+COPY .env ./
 
 # Install app dependencies
 RUN npm install
@@ -22,4 +24,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the server using the production build
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start"]

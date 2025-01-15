@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_USER: user
+      POSTGRES_DB: local
+    volumes:
+      - nest_docker_postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    environment:
+      NODE_ENV: development
+    ports:
+      - '3000:3000'
+
+volumes:
+  nest_docker_postgres_data:
