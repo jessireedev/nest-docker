@@ -14,4 +14,10 @@ docker run -p 3000:3000 jessireedev/nestjs-docker
 
 ## Sample implementation
 
-* [nest-docker-usage](https://gist.github.com/jessireedev/60d940dc2c6bba2dcf443b778c74bfe6)
+- [nest-docker-usage](https://gist.github.com/jessireedev/60d940dc2c6bba2dcf443b778c74bfe6)
+
+## How to run migrations
+
+```
+pnpm migration:generate ./db/migrations/AddUserEntity
+```
