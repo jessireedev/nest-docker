@@ -1,5 +1,4 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-// import { Photo } from '../photos/photo.entity';
 
 @Entity({
   name: 'users',
