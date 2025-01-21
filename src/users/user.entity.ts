@@ -17,9 +17,6 @@ export class UserEntity {
   @Column({ default: true })
   isActive: boolean;
 
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photos: Photo[];.
-
   constructor(partial?: Partial<UserEntity>) {
     if (partial) {
       Object.assign(this, partial);
