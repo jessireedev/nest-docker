@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { ErrorEnum } from '../enums';
+import { ErrorHelper } from '../helpers';
 import { CreateUserDto, UpdateUserDto, UserDto } from './user.dto';
 import { UserRepository } from './user.repository';
 
@@ -9,10 +11,11 @@ export class UserService {
   async findByIdAndThrow(userId: string): Promise<UserDto> {
     const user = await this.userRepository.findById(userId);
 
-    if (!user) {
-      throw new Error('No user found');
+    if (user === null) {
+      throw ErrorHelper.notFound(ErrorEnum.USER_NOT_FOUND);
     }
-    return user;
+
+    return UserDto.entityToDtoFactory(user);
   }
 
   async create(data: CreateUserDto): Promise<UserDto> {

@@ -1,5 +1,4 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-// import { Photo } from '../photos/photo.entity';
 
 @Entity({
   name: 'users',
@@ -16,9 +15,6 @@ export class UserEntity {
 
   @Column({ default: true })
   isActive: boolean;
-
-  // @OneToMany(type => Photo, photo => photo.user)
-  // photos: Photo[];.
 
   constructor(partial?: Partial<UserEntity>) {
     if (partial) {
