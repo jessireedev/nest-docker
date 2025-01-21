@@ -1,13 +1,11 @@
 # Base image
-FROM node:23-alpine3.20 as base
+FROM node:23-alpine3.20 AS base
 
 # Create app directory
 WORKDIR /usr/src/app
 
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
-
-COPY .env ./
 
 # Install app dependencies
 RUN npm install

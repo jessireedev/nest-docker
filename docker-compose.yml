@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   postgres:
     image: postgres:15
@@ -18,7 +16,11 @@ services:
       dockerfile: Dockerfile
     container_name: api
     environment:
-      NODE_ENV: development
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: user
+      DB_PASSWORD: secretpassword
+      DB_DATABASE: local
     ports:
       - '3000:3000'
 
