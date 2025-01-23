@@ -15,7 +15,7 @@ COPY src .
 
 COPY tsconfig*.json ./
 
-COPY db ./db
+# COPY db ./db
 
 # Creates a "dist" folder with the production build
 RUN npm run build
