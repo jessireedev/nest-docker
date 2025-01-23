@@ -9,6 +9,6 @@ export default registerAs('database', () => ({
   database: process.env.DB_DATABASE,
   keepConnectionAlive: true,
   entities: [`${__dirname}/../**/*.entity{.ts,.js}`],
-  migrations: [`${__dirname}/../../db/migrations/*{.ts,.js}`],
+  migrations: [`${__dirname}/../db/migrations/*{.ts,.js}`],
   migrationsTableName: 'migrations',
 }));

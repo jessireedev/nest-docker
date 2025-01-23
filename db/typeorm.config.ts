@@ -16,6 +16,6 @@ export default new DataSource({
   entities: [`${__dirname}/../src/**/*.entity{.ts,.js}`],
   synchronize: configService.get('nodenv') === 'development',
   logging: configService.get('nodenv') === 'development',
-  migrations: [`${__dirname}/migrations/*{.ts,.js}`],
+  migrations: [`${__dirname}../src/db/migrations/*{.ts,.js}`],
   migrationsTableName: 'migrations',
 });
