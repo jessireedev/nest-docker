@@ -13,13 +13,21 @@ RUN npm install
 # Bundle app source
 COPY src .
 
+COPY db ./db/
+
 COPY tsconfig*.json ./
+
+COPY entrypoint.sh ./
 
 # Creates a "dist" folder with the production build
 RUN npm run build
 
 # Expose the port on which the app will run
 EXPOSE 3000
+
+RUN chmod +x /app/entrypoint.sh
+
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 # Start the server using the production build
 CMD ["npm", "run", "start"]
