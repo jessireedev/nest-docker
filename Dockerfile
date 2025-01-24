@@ -1,25 +1,21 @@
-# Base image
 FROM node:23-alpine3.20 AS base
 
-# Create app directory
 WORKDIR /app
 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
-# Install app dependencies
-RUN npm install
+COPY pnpm-lock.yaml ./
 
-# Bundle app source
+RUN npm install -g pnpm
+
+RUN pnpm install
+
 COPY src .
 
 COPY tsconfig*.json ./
 
-# Creates a "dist" folder with the production build
-RUN npm run build
+RUN pnpm build
 
-# Expose the port on which the app will run
 EXPOSE 3000
 
-# Start the server using the production build
-CMD ["npm", "run", "start"]
+CMD ["pnpm", "start"]
